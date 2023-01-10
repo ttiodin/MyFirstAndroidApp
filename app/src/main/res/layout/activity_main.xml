@@ -9,12 +9,11 @@
     <!--SIGN IN LABEL -->
     <TextView
         android:id="@+id/signInLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="325dp"
+        android:layout_height="75dp"
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="@string/signInLabel"
-        android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,11 +22,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/userInfoConstraint"
-        android:layout_width="389dp"
-        android:layout_height="307dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="390dp"
+        android:layout_height="375dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInLabel">
@@ -35,8 +34,8 @@
         <!--User Enters UserName -->
         <EditText
             android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="249dp"
+            android:layout_height="61dp"
             android:layout_marginTop="20dp"
             android:autofillHints=""
             android:background="#dcdcde"
@@ -53,11 +52,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <!--User Enters Password -->
+
+        <!--Sign In Button -->
         <EditText
             android:id="@+id/userPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_width="250dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
             android:autofillHints=""
             android:background="#dcdcde"
             android:drawableStart="@drawable/ic_baseline_key_24"
@@ -72,16 +73,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userName" />
 
-        <!--Sign In Button -->
         <Button
             android:id="@+id/signInButton"
-            android:layout_width="145dp"
-            android:layout_height="50dp"
+            android:layout_width="250dp"
+            android:layout_height="58dp"
             android:layout_marginTop="50dp"
+            android:backgroundTint="#45C1A8"
             android:text="@string/login"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+
+        <!-- This lines up the the TextViews Together /-->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="366dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signInButton">
+
+            <!-- This displays the text before "Register Now" /-->
+            <TextView
+                android:id="@+id/registerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:text="Don't have an account?"
+                app:layout_constraintEnd_toStartOf="@+id/registerTextPrompt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+
+            <!-- This displays the text the user has to click to create an account. /-->
+            <TextView
+                android:id="@+id/registerTextPrompt"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="100dp"
+                android:text="Register Now"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="299dp" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
