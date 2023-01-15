@@ -38,18 +38,18 @@ public class MainActivity extends AppCompatActivity {
     //Event Listener for Login Button and Register Text Prompt
     public void buttonOnClick(View v) {
 
-        EditText user = findViewById(R.id.userName);
+        EditText email = findViewById(R.id.userEmail);
         EditText password = findViewById(R.id.userPassword);
         //Button logInButton = findViewById(R.id.signInButton);
         //TextView registerButton = findViewById(R.id.registerTextPrompt);
 
-        String userName = user.getText().toString();
+        String userEmail = email.getText().toString();
         String userPassword = password.getText().toString();
 
         switch(v.getId()){
             case R.id.signInButton:
-                if(userName.isEmpty() || userPassword.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Please enter username or password.", Toast.LENGTH_SHORT).show();
+                if(userEmail.isEmpty() || userPassword.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please enter email or password.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "LOREM IPSUM", Toast.LENGTH_SHORT).show();
                 }

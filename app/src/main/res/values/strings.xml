@@ -3,6 +3,6 @@
     <string name="signInLabel">Sign In</string>
     <string name="registerLabel">Register</string>
     <string name="hintPassword">Password</string>
-    <string name="hintUsername">Username</string>
+    <string name="hintEmail">Email</string>
     <string name="login">Login</string>
 </resources>
