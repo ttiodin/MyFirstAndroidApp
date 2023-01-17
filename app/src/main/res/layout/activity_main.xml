@@ -44,7 +44,7 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="@string/hintEmail"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textColorHint="#616161"
@@ -64,13 +64,14 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="@string/hintPassword"
-            android:inputType="text|textPassword"
+            android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textColorHint="#616161"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+
 
         <!--Sign In Button -->
         <Button
@@ -98,6 +99,8 @@
             app:layout_constraintTop_toBottomOf="@+id/signInButton">
 
             <!-- This displays the text before "Register Now" /-->
+
+            <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/registerText"
                 android:layout_width="wrap_content"
@@ -108,7 +111,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
-            <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/registerTextPrompt"
                 android:layout_width="116dp"

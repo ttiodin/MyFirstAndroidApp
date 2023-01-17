@@ -48,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch(v.getId()){
             case R.id.signInButton:
-                if(userEmail.isEmpty() || userPassword.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Please enter email or password.", Toast.LENGTH_SHORT).show();
+                if(userEmail.isEmpty() && userPassword.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please enter email and password.", Toast.LENGTH_SHORT).show();
+                } else if(userEmail.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
+                } else if(userPassword.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "LOREM IPSUM", Toast.LENGTH_SHORT).show();
                 }
