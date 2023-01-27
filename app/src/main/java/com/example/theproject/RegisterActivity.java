@@ -18,9 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText userTextEmail, userTextPassword;
+    private EditText userTextEmail, userTextPassword;
     Button regButton;
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     //This checks to see if the user is already signed in, if so they will be directed to the BaseActivity.
     @Override
