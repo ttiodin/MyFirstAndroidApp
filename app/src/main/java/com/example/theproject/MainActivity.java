@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         userTextEmail = findViewById(R.id.userEmail);
         userTextPassword = findViewById(R.id.userPassword);
 
-        String userEmail = userTextEmail.getText().toString();
-        String userPassword = userTextPassword.getText().toString();
+        String userEmail = userTextEmail.getText().toString().trim();
+        String userPassword = userTextPassword.getText().toString().trim();
 
         switch(v.getId()){
             case R.id.signInButton:
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
                                         // Sign in success, display a message to user and open up base Activity
                                         Toast.makeText(MainActivity.this, "Login Successful.",
                                                 Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(getApplicationContext(), BaseActivity.class);
-                                        startActivity(i);
+                                        Intent baseActivity = new Intent(getApplicationContext(), BaseActivity.class);
+                                        startActivity(baseActivity);
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         Toast.makeText(MainActivity.this, "Authentication failed.",
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.registerTextPrompt:
-                Intent i = new Intent(this, RegisterActivity.class);
-                startActivity(i);
+                Intent registerActivity = new Intent(this, RegisterActivity.class);
+                startActivity(registerActivity);
         }
     }
 }

@@ -1,13 +1,11 @@
 package com.example.theproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,14 +17,13 @@ import com.google.firebase.auth.FirebaseUser;
 public class BaseActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private Button logButton;
-    private TextView userEmail;
+    private String userEmail;
     private FirebaseUser user;
     private BottomNavigationView bottomNavView;
 
-    private HomeFragment homeFragment = new HomeFragment();
-    private UtilitiesFragment utilitiesFragment = new UtilitiesFragment();
-    private SettingsFragment settingsFragment = new SettingsFragment();
+    final private HomeFragment homeFragment = new HomeFragment();
+    final private UtilitiesFragment utilitiesFragment = new UtilitiesFragment();
+    final private SettingsFragment settingsFragment = new SettingsFragment();
 
 
     @Override
@@ -39,14 +36,13 @@ public class BaseActivity extends AppCompatActivity {
          * redirected to the MainActivity (Login Page).
          */
         auth = FirebaseAuth.getInstance();
-        logButton = findViewById(R.id.logoutButton);
-        userEmail = findViewById(R.id.userInfo);
         user = auth.getCurrentUser();
         if (user == null){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         } else {
-             userEmail.setText(user.getEmail());
+             //userEmail.setText(user.getEmail());
+            userEmail = user.getEmail();
         }
 
         bottomNavView = findViewById(R.id.bottom_navigation_menu);
@@ -68,18 +64,15 @@ public class BaseActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
 
-        //On Click Listener for the Button
-        logButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                //Signs the User out of FireBase
-                FirebaseAuth.getInstance().signOut();
+    public void logOut(View v) {
+        //Signs the User out of FireBase
+        FirebaseAuth.getInstance().signOut();
 
-                //When the user signs out, a Toast is shown and the user will be redirected to the Log In Screen.
-                Toast.makeText(BaseActivity.this, "Successfully Logged Out.", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
+        //When the user signs out, a Toast is shown and the user will be redirected to the Log In Screen.
+        Toast.makeText(this, "Successfully Logged Out.", Toast.LENGTH_SHORT).show();
+        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(mainActivity);
     }
 }
