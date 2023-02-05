@@ -33,7 +33,7 @@
 
         <!--User Enters Email -->
         <EditText
-            android:id="@+id/userEmail"
+            android:id="@+id/user_name"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -69,7 +69,7 @@
             android:textColorHint="#616161"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
         <!--Register Button -->
         <Button

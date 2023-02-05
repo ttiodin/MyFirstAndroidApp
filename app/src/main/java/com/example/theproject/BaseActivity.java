@@ -3,6 +3,7 @@ package com.example.theproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,8 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class BaseActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private String userEmail;
     private FirebaseUser user;
+    private String userEmail, userName;
+    private Uri photoUrl;
     private BottomNavigationView bottomNavView;
 
     final private HomeFragment homeFragment = new HomeFragment();
@@ -31,18 +33,20 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         /*
          * If a user is still authenticated through FireBase this activity will remain, if not the user will be
          * redirected to the MainActivity (Login Page).
          */
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
         if (user == null){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         } else {
              //userEmail.setText(user.getEmail());
             userEmail = user.getEmail();
+            userName = user.getDisplayName();
+            photoUrl = user.getPhotoUrl();
         }
 
         bottomNavView = findViewById(R.id.bottom_navigation_menu);
@@ -68,7 +72,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void logOut(View v) {
         //Signs the User out of FireBase
-        FirebaseAuth.getInstance().signOut();
+        auth.getInstance().signOut();
 
         //When the user signs out, a Toast is shown and the user will be redirected to the Log In Screen.
         Toast.makeText(this, "Successfully Logged Out.", Toast.LENGTH_SHORT).show();

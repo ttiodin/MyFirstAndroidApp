@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -22,12 +23,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.OAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText userTextEmail, userTextPassword;
     Button loginButton;
     private FirebaseAuth mAuth;
+    ImageView btnGitHub, btnGoogle;
 
     //Variables for Google SignNn
     private GoogleSignInClient gsc;
@@ -50,17 +53,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userTextEmail = findViewById(R.id.userEmail);
+        userTextEmail = findViewById(R.id.user_name);
         userTextPassword = findViewById(R.id.userPassword);
         loginButton = findViewById(R.id.signInButton);
+        btnGoogle = findViewById(R.id.google_signin_logo);
+        btnGitHub = findViewById(R.id.github_signin_logo);
         mAuth =  FirebaseAuth.getInstance();
 
         createRequest();
 
-        findViewById(R.id.google_signin_button).setOnClickListener(new View.OnClickListener() {
+        btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 GoogleSignIn();
+            }
+        });
+
+        btnGitHub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent baseActivity = new Intent(MainActivity.this, GitHubAuthentication.class);
+                startActivity(baseActivity);
             }
         });
     }
@@ -116,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     //Event Listener for Login Button and Register Text Prompt
     public void buttonOnClick(View v) {
 
-        userTextEmail = findViewById(R.id.userEmail);
+        userTextEmail = findViewById(R.id.user_name);
         userTextPassword = findViewById(R.id.userPassword);
 
         String userEmail = userTextEmail.getText().toString().trim();
