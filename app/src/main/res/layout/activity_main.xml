@@ -24,7 +24,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/userInfoConstraint"
         android:layout_width="390dp"
-        android:layout_height="375dp"
+        android:layout_height="450dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signInLabel">
 
         <!--User Enters Email -->
+
         <EditText
             android:id="@+id/userEmail"
             android:layout_width="250dp"
@@ -88,6 +89,19 @@
             app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
         <!-- This lines up the the TextViews Together /-->
+
+        <Button
+            android:id="@+id/google_signin_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="44dp"
+            android:text="Google"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.203" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="366dp"
