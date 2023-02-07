@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,21 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText userTextEmail, userTextPassword;
+    //Declaring Variables
+    private EditText userTextEmail, userTextPassword, userTextVerifyPassword;
     Button regButton;
-    private FirebaseAuth mAuth;
-
-    //This checks to see if the user is already signed in, if so they will be directed to the BaseActivity.
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent i = new Intent(getApplicationContext(), BaseActivity.class);
-            startActivity(i);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,48 +30,83 @@ public class RegisterActivity extends AppCompatActivity {
 
         userTextEmail = findViewById(R.id.user_name);
         userTextPassword = findViewById(R.id.userPassword);
+        userTextVerifyPassword = findViewById(R.id.userVerifyPassword);
         regButton = findViewById(R.id.registerButton);
-        mAuth =  FirebaseAuth.getInstance();
 
+        //When the "Create Account" button is pressed, the CreateAccount Method is called.
         regButton.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                String email, password;
-                email = userTextEmail.getText().toString();
-                password = userTextPassword.getText().toString();
+                createAccount();
+            }
+        });
+    }
 
-                if(email.isEmpty() && password.isEmpty()){
-                    Toast.makeText(RegisterActivity.this, "Please enter email and password.", Toast.LENGTH_SHORT).show();
-                } else if(email.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
-                } else if(password.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
+    //If a user clicks the "Sign In" TextView, the user gets redirected to the MainActivity.
+    public void loginOnClick(View v){
+        Intent mainActivity = new Intent(this, MainActivity.class);
+        startActivity(mainActivity);
+    }
+
+    //This is the method that is called when the "Create Account" button is clicked.
+    void createAccount() {
+        String email = userTextEmail.getText().toString().trim();
+        String password = userTextPassword.getText().toString().trim();
+        String confirmPassword = userTextVerifyPassword.getText().toString().trim();
+
+        boolean isValid = validateInputs(email, password, confirmPassword);
+
+        if(!isValid){
+            return;
+        }
+
+        createAccountInFireBase(email, password);
+    }
+
+    //This is the method that creates the account within FireBase.
+    private void createAccountInFireBase (String email, String password){
+        FirebaseAuth fbAuth =  FirebaseAuth.getInstance();
+        fbAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(RegisterActivity.this, "Account created.", Toast.LENGTH_SHORT).show();
+                    fbAuth.getCurrentUser().sendEmailVerification();
+                    fbAuth.signOut();
+                    finish();
                 } else {
-                    //This is the code provided by FireBase with necessary changes.
-                    mAuth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        Toast.makeText(RegisterActivity.this, "Account created.",
-                                                Toast.LENGTH_SHORT).show();
-
-                                        Intent i = new Intent(getApplicationContext(), BaseActivity.class);
-                                        startActivity(i);
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                    Toast.makeText(RegisterActivity.this,task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    public void loginOnClick(View v){
-        Intent mainActivity = new Intent(this, MainActivity.class);
-        startActivity(mainActivity);
+    //This is the method that validates the inputs the user has entered (EMAIL and PASSWORDS).
+    private boolean validateInputs(String email, String password, String confirmPassword) {
+
+        if(email.isEmpty() && password.isEmpty()){
+            userTextEmail.setError("Please enter an email.");
+            userTextPassword.setError("Please enter a password.");
+            return false;
+        } else if (email.isEmpty()) {
+            userTextEmail.setError("Please enter an email.");
+            return false;
+        } else if (password.isEmpty()) {
+            userTextPassword.setError("Please enter a password.");
+            return false;
+        } else if (confirmPassword.isEmpty()) {
+            userTextVerifyPassword.setError("Please reenter password.");
+            return false;
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            userTextEmail.setError("Email is invalid");
+            return false;
+        } else if (password.length() < 6) {
+            userTextPassword.setError("Password length is invalid.");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            userTextVerifyPassword.setError("The passwords do not match.");
+            return false;
+        }
+        return true;
     }
 }

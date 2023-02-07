@@ -7,6 +7,10 @@
     <string name="login">Login</string>
     <string name="logout">Log Out</string>
     <string name="back">Back</string>
+    <string name="createAccount">Create Account</string>
+    <string name="loginLabel">Already Have an Account?</string>
+    <string name="reenterPassword">Reenter Password</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

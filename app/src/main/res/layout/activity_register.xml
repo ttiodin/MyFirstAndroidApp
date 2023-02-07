@@ -23,7 +23,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/userInfoConstraint"
         android:layout_width="390dp"
-        android:layout_height="375dp"
+        android:layout_height="425dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,19 +71,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
+        <!--User Verifies Password -->
+
         <!--Register Button -->
+
+        <EditText
+            android:id="@+id/userVerifyPassword"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="48dp"
+            android:autofillHints=""
+            android:background="#dcdcde"
+            android:drawableStart="@drawable/ic_baseline_key_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/reenterPassword"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#616161"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+
         <Button
             android:id="@+id/registerButton"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="48dp"
             android:backgroundTint="#45C1A8"
             android:onClick="buttonOnClick"
-            android:text="@string/registerLabel"
+            android:text="@string/createAccount"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userPassword"
+            app:layout_constraintTop_toBottomOf="@+id/userVerifyPassword"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <!-- This lines up the the TextViews Together /-->
@@ -105,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="75dp"
-                android:text="Already have an account?"
+                android:text="@string/loginLabel"
                 app:layout_constraintEnd_toStartOf="@+id/loginPrompt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerButton" />
