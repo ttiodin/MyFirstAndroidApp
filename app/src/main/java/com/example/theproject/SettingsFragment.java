@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 public class SettingsFragment extends Fragment {
 
+    public SettingsFragment () {
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
