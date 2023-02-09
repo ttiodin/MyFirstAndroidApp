@@ -128,7 +128,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/google_signin_logo"
+            android:id="@+id/google_signIn_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="132dp"
@@ -139,12 +139,12 @@
             app:srcCompat="@drawable/common_google_signin_btn_icon_light" />
 
         <ImageView
-            android:id="@+id/github_signin_logo"
+            android:id="@+id/github_signIn_logo"
             android:layout_width="46dp"
             android:layout_height="48dp"
             android:layout_marginStart="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/google_signin_logo"
+            app:layout_constraintStart_toEndOf="@+id/google_signIn_logo"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:layout_constraintVertical_bias="0.505"
             app:srcCompat="@drawable/github_mark" />

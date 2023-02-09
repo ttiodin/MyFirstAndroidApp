@@ -16,13 +16,6 @@
         android:theme="@style/Theme.TheProject"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Calculator"
             android:exported="false">
             <meta-data
@@ -51,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

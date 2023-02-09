@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -23,11 +25,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.OAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText userTextEmail, userTextPassword;
+    private TextView registerPrompt;
     Button loginButton;
     private FirebaseAuth mAuth;
     ImageView btnGitHub, btnGoogle;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser != null){
             Intent baseActivity = new Intent(getApplicationContext(), BaseActivity.class);
             startActivity(baseActivity);
@@ -56,12 +58,30 @@ public class MainActivity extends AppCompatActivity {
         userTextEmail = findViewById(R.id.user_name);
         userTextPassword = findViewById(R.id.userPassword);
         loginButton = findViewById(R.id.signInButton);
-        btnGoogle = findViewById(R.id.google_signin_logo);
-        btnGitHub = findViewById(R.id.github_signin_logo);
+        registerPrompt = findViewById(R.id.registerTextPrompt);
+        btnGoogle = findViewById(R.id.google_signIn_logo);
+        btnGitHub = findViewById(R.id.github_signIn_logo);
         mAuth =  FirebaseAuth.getInstance();
 
         createRequest();
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginUser();
+            }
+        });
+
+        //When the user clicks "Register Now" they will be prompted to RegisterActivity.
+        registerPrompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(registerActivity);
+            }
+        });
+
+        //Google Button OnClickListener that runs method.
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //GitHub ImageView On Click Listener that launches GitHubAuthentication Activity.
         btnGitHub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,11 +110,13 @@ public class MainActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
     }
 
+    //This method runs when the google ImageView is clicked.
     private void GoogleSignIn() {
-        Intent signInIntent = gsc.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        Intent signInGoogleIntent = gsc.getSignInIntent();
+        startActivityForResult(signInGoogleIntent, RC_SIGN_IN);
     }
 
+    //This method is called in the GoogleSignIn Method, if the Request Code is correct, Prompts Google Sign In Page.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -109,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //This is the method that verifies the google account being used to sign in.
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -126,48 +150,61 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    //Event Listener for Login Button and Register Text Prompt
-    public void buttonOnClick(View v) {
+    //This is the method that logs in the user via email and password.
+    private void loginUser() {
+        String email = userTextEmail.getText().toString().trim();
+        String password = userTextPassword.getText().toString().trim();
 
-        userTextEmail = findViewById(R.id.user_name);
-        userTextPassword = findViewById(R.id.userPassword);
+        boolean isValid = validateInputs(email, password);
 
-        String userEmail = userTextEmail.getText().toString().trim();
-        String userPassword = userTextPassword.getText().toString().trim();
-
-        switch(v.getId()){
-            case R.id.signInButton:
-                if(userEmail.isEmpty() && userPassword.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Please enter email and password.", Toast.LENGTH_SHORT).show();
-                } else if(userEmail.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
-                } else if(userPassword.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
-                } else {
-                    //This is the code provided by Firebase with necessary changes.
-                    mAuth.signInWithEmailAndPassword(userEmail, userPassword)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        // Sign in success, display a message to user and open up base Activity
-                                        Toast.makeText(MainActivity.this, "Login Successful.",
-                                                Toast.LENGTH_SHORT).show();
-                                        Intent baseActivity = new Intent(getApplicationContext(), BaseActivity.class);
-                                        startActivity(baseActivity);
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(MainActivity.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                }
-                break;
-            case R.id.registerTextPrompt:
-                Intent registerActivity = new Intent(this, RegisterActivity.class);
-                startActivity(registerActivity);
+        if(!isValid){
+            return;
         }
+
+        signInAccountInFireBase(email, password);
+    }
+
+    //This is the method that logins the account within FireBase.
+    private void signInAccountInFireBase (String email, String password){
+        FirebaseAuth fbAuth =  FirebaseAuth.getInstance();
+        fbAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    if(fbAuth.getCurrentUser().isEmailVerified()) {
+                        Toast.makeText(MainActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, BaseActivity.class));
+                    } else {
+                        Toast.makeText(MainActivity.this, "Email not verified, Please verify your email.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this,task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    //This is the method that validates the inputs the user has entered (EMAIL and PASSWORD).
+    private boolean validateInputs(String email, String password) {
+
+        if(email.isEmpty() && password.isEmpty()){
+            userTextEmail.setError("Please enter an email.");
+            userTextPassword.setError("Please enter a password.");
+            return false;
+        } else if (email.isEmpty()) {
+            userTextEmail.setError("Please enter an email.");
+            return false;
+        } else if (password.isEmpty()) {
+            userTextPassword.setError("Please enter a password.");
+            return false;
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            userTextEmail.setError("Email is invalid");
+            return false;
+        } else if (password.length() < 6) {
+            userTextPassword.setError("Password length is invalid.");
+            return false;
+        }
+        return true;
     }
 }
 
