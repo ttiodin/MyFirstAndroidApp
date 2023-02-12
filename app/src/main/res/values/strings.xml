@@ -4,9 +4,11 @@
     <string name="registerLabel">Register</string>
     <string name="hintPassword">Password</string>
     <string name="hintEmail">Email</string>
+    <string name="hintGitHubEmail">GitHub Email</string>
     <string name="login">Login</string>
     <string name="logout">Log Out</string>
     <string name="back">Back</string>
+    <string name="settings">Settings</string>
     <string name="createAccount">Create Account</string>
     <string name="loginLabel">Already Have an Account?</string>
     <string name="reenterPassword">Reenter Password</string>

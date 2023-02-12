@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     GoogleSignInAccount account = task.getResult(ApiException.class);
                     firebaseAuthWithGoogle(account);
                 } catch (ApiException e) {
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
         }
     }
@@ -140,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             Intent baseActivity = new Intent(getApplicationContext(), BaseActivity.class);
                             startActivity(baseActivity);
                         } else {
