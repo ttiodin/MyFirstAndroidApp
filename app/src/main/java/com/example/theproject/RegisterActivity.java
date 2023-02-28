@@ -91,17 +91,17 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (email.isEmpty()) {
             userTextEmail.setError("Please enter an email.");
             return false;
-        } else if (password.isEmpty()) {
-            userTextPassword.setError("Please enter a password.");
-            return false;
-        } else if (confirmPassword.isEmpty()) {
-            userTextVerifyPassword.setError("Please reenter password.");
-            return false;
         } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             userTextEmail.setError("Email is invalid");
             return false;
+        } else if (password.isEmpty()) {
+            userTextPassword.setError("Please enter a password.");
+            return false;
         } else if (password.length() < 6) {
             userTextPassword.setError("Password length is invalid.");
+            return false;
+        } else if (confirmPassword.isEmpty() && !password.isEmpty()) {
+            userTextVerifyPassword.setError("Please reenter password.");
             return false;
         } else if (!password.equals(confirmPassword)) {
             userTextVerifyPassword.setError("The passwords do not match.");

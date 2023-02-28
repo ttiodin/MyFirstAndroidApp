@@ -20,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- This is the ConstraintLayout the holds the EditText Fields. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/userInfoConstraint"
         android:layout_width="390dp"
@@ -72,9 +73,6 @@
             app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
         <!--User Verifies Password -->
-
-        <!--Register Button -->
-
         <EditText
             android:id="@+id/userVerifyPassword"
             android:layout_width="250dp"
@@ -94,6 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
+        <!--Register Button -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="250dp"
@@ -108,7 +107,7 @@
             app:layout_constraintTop_toBottomOf="@+id/userVerifyPassword"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <!-- This lines up the the TextViews Together /-->
+        <!-- This lines up the the Login TextViews Together /-->
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="366dp"
@@ -120,8 +119,6 @@
             app:layout_constraintTop_toBottomOf="@+id/registerButton">
 
             <!-- This displays the text before "Register Now" /-->
-
-            <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/loginText"
                 android:layout_width="wrap_content"
@@ -131,6 +128,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/loginPrompt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+            <!-- This displays the text the user has to click to create an account. /-->
+
 
             <TextView
                 android:id="@+id/loginPrompt"
