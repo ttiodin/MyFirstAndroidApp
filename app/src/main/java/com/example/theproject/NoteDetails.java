@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,9 @@ public class NoteDetails extends AppCompatActivity {
 
     private EditText titleEditText, descriptionEditText;
     private ImageButton saveButton;
+    private TextView pageTitle;
+    private String title,description,docId;
+    private boolean toEdit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,24 @@ public class NoteDetails extends AppCompatActivity {
         titleEditText = findViewById(R.id.note_title);
         descriptionEditText = findViewById(R.id.note_description);
         saveButton = findViewById(R.id.save_note_button);
+        pageTitle = findViewById(R.id.add_note_title);
+
+        //This happens the the user wants to edit the notes.
+        title = getIntent().getStringExtra("title");
+        description = getIntent().getStringExtra("description");
+        docId = getIntent().getStringExtra("docId");
+
+        if(docId != null && !docId.isEmpty()){
+            toEdit = true;
+        }
+
+        titleEditText.setText(title);
+        descriptionEditText.setText(description);
+
+        if(toEdit){
+            pageTitle.setText("Edit Note");
+        }
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +82,16 @@ public class NoteDetails extends AppCompatActivity {
     void saveNoteToFirebase(Note note) {
         DocumentReference docReference;
 
-        docReference = (DocumentReference) getCollectionReferenceForNotes().document();
+
+        if(toEdit) {
+            //This updates the note.
+            docReference = getCollectionReferenceForNotes().document(docId);
+        } else {
+            //This Creates a new note.
+            docReference = getCollectionReferenceForNotes().document();
+        }
+
+
 
         docReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

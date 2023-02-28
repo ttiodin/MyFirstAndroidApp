@@ -1,6 +1,8 @@
 package com.example.theproject;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,13 +27,26 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull Note note) {
+    protected void onBindViewHolder(@NonNull NoteViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Note note) {
         Timestamp test = note.timestamp;
         String convertedTimeStamp = new SimpleDateFormat("MM/dd/yyyy").format(test.toDate());
 
         holder.noteTitle.setText(note.title);
         holder.noteDescription.setText(note.description);
         holder.noteTimeStamp.setText(convertedTimeStamp);
+
+        //This is the code that will bring up the NoteDetails for the user to Edit the Note.
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,NoteDetails.class);
+                intent.putExtra("title",note.title);
+                intent.putExtra("description",note.description);
+                String docId = getSnapshots().getSnapshot(position).getId();
+                intent.putExtra("docId",docId);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull
