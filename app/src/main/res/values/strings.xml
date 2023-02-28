@@ -13,6 +13,8 @@
     <string name="loginLabel">Already Have an Account?</string>
     <string name="reenterPassword">Reenter Password</string>
     <string name="addNote">Add New Note</string>
+    <string name="editNote">Edit Note</string>
+    <string name="deleteNote">Delete Note</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
 

@@ -24,7 +24,7 @@ public class NoteDetails extends AppCompatActivity {
 
     private EditText titleEditText, descriptionEditText;
     private ImageButton saveButton;
-    private TextView pageTitle;
+    private TextView pageTitle, deleteNote;
     private String title,description,docId;
     private boolean toEdit = false;
 
@@ -37,6 +37,7 @@ public class NoteDetails extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.note_description);
         saveButton = findViewById(R.id.save_note_button);
         pageTitle = findViewById(R.id.add_note_title);
+        deleteNote = findViewById(R.id.delete_note);
 
         //This happens the the user wants to edit the notes.
         title = getIntent().getStringExtra("title");
@@ -52,6 +53,7 @@ public class NoteDetails extends AppCompatActivity {
 
         if(toEdit){
             pageTitle.setText("Edit Note");
+            deleteNote.setVisibility(View.VISIBLE);
         }
 
 
@@ -59,6 +61,31 @@ public class NoteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveNote();
+            }
+        });
+
+        deleteNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteNoteFromFirebase();
+            }
+        });
+    }
+
+    private void deleteNoteFromFirebase() {
+
+        DocumentReference docReference;
+        docReference = getCollectionReferenceForNotes().document(docId);
+
+        docReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(NoteDetails.this, "Note deleted successfully.", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(NoteDetails.this, "Failed to delete note.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
