@@ -22,12 +22,21 @@ public class UtilitiesFragment extends Fragment {
         View v =  inflater.inflate(R.layout.fragment_utilities, container, false);
 
         Button btnCalc = v.findViewById(R.id.btn_calculator);
+        Button btnIncrement = v.findViewById(R.id.btn_increment_tool);
         //Button btnBack = v.findViewById(R.id.btn_back_baseActivity);
 
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent calculator = new Intent(getActivity(), Calculator.class);
+                startActivity(calculator);
+            }
+        });
+
+        btnIncrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent calculator = new Intent(getActivity(), IncrementTool.class);
                 startActivity(calculator);
             }
         });
