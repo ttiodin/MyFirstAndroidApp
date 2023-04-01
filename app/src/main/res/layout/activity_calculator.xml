@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Calculator">
 
+    <!--This is where the solution for the calculator will display. -->
     <TextView
         android:id="@+id/solution"
         android:layout_width="match_parent"
@@ -20,11 +21,12 @@
         android:textColor="@color/black"
         android:textSize="32sp" />
 
+    <!--This is the textview where the result will show. -->
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_layout_16"
+        android:layout_above="@+id/button_layout_20"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
@@ -34,8 +36,9 @@
         android:textColor="@color/black"
         android:textSize="64sp" />
 
+    <!--This is the LinearLayout that holds all the 20 calculator buttons. -->
     <LinearLayout
-        android:id="@+id/button_layout_16"
+        android:id="@+id/button_layout_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -43,7 +46,7 @@
         android:orientation="vertical"
         android:paddingVertical="16dp">
 
-
+        <!--This is the LinearLayout that holds the first four calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_one"
             android:layout_width="match_parent"
@@ -51,6 +54,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
+            <!--This is the Clear Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_clear"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -63,6 +67,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the Open Bracket Button. -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_open_bracket_left"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -75,6 +80,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the Close Bracket Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_open_bracket_right"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -87,6 +93,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the Division Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_divide"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -99,9 +106,9 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-
         </LinearLayout>
 
+        <!--This is the LinearLayout that holds the second row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_two"
             android:layout_width="match_parent"
@@ -109,6 +116,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
+            <!--This is the number 7 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_seven"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -120,6 +128,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 8 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_eight"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -131,6 +140,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 9 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_nine"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -142,6 +152,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the multiplication Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_multiply"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -154,9 +165,9 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-
         </LinearLayout>
 
+        <!--This is the LinearLayout that holds the third row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_three"
             android:layout_width="match_parent"
@@ -164,6 +175,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
+            <!--This is the number 4 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_four"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -175,6 +187,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 5 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_five"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -186,6 +199,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 6 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_six"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -197,6 +211,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the subtraction Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_subtract"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -209,9 +224,9 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-
         </LinearLayout>
 
+        <!--This is the LinearLayout that holds the fourth row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_four"
             android:layout_width="match_parent"
@@ -219,6 +234,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
+            <!--This is the number 1 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_one"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -230,6 +246,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 2 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_two"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -241,6 +258,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 3 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_three"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -252,6 +270,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the addition Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_add"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -264,9 +283,9 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-
         </LinearLayout>
 
+        <!--This is the LinearLayout that holds the fifth row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_five"
             android:layout_width="match_parent"
@@ -274,6 +293,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
+            <!--This is the all clear Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_allClear"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -286,6 +306,7 @@
                 android:textSize="16sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the number 0 Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_zero"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -297,6 +318,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the decimal Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_decimal"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -308,6 +330,7 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
+            <!--This is the equals Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_equals"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -320,11 +343,11 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-
         </LinearLayout>
 
     </LinearLayout>
 
+    <!--This is the back button -->
     <Button
         android:id="@+id/btn_back_baseActivity"
         android:layout_width="wrap_content"

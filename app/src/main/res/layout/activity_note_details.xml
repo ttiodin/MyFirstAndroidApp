@@ -7,11 +7,13 @@
     android:padding="16dp"
     tools:context=".NoteDetails">
 
+    <!-- This RelativeLayout holds the Page Title and the Save Button. -->
     <RelativeLayout
         android:id="@+id/title_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- This displays the Add New Note Title. -->
         <TextView
             android:id="@+id/add_note_title"
             android:layout_width="wrap_content"
@@ -21,6 +23,7 @@
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 
+        <!-- This is the save button at the top right. -->
         <ImageButton
             android:id="@+id/save_note_button"
             android:layout_width="48dp"
@@ -31,6 +34,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </RelativeLayout>
 
+    <!-- This contains all of the note details. -->
     <LinearLayout
         android:id="@+id/note_details_layout"
         android:layout_width="match_parent"
@@ -40,7 +44,7 @@
         android:padding="16dp"
         android:layout_marginVertical="30dp">
 
-
+        <!-- This is where the user enters the note title. -->
         <EditText
             android:id="@+id/note_title"
             android:layout_width="match_parent"
@@ -51,6 +55,7 @@
             android:layout_marginVertical="10dp"
             android:padding="12dp"/>
 
+        <!-- This is where the user enters the note description. -->
         <EditText
             android:id="@+id/note_description"
             android:layout_width="match_parent"
@@ -63,6 +68,8 @@
             android:minLines="10"/>
     </LinearLayout>
 
+    <!-- This only displays when an existing note needs to be deleted,
+        otherwise this is not visible to the user when creating a note. -->
     <TextView
         android:id="@+id/delete_note"
         android:layout_width="match_parent"

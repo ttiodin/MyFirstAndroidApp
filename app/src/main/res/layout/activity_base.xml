@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".BaseActivity">
 
+    <!--This is where all the fragment outputs will display. -->
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
 
     </FrameLayout>
 
+    <!--This is the bottom navigation that the user can browse through the different fragments. -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_menu"
         android:layout_width="match_parent"

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <!-- This contains the TextView. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_home_fragment_constraint"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- This displays the Application Name on the Home Fragment. -->
         <TextView
             android:id="@+id/top_home_fragment_label"
             android:layout_width="wrap_content"
@@ -32,13 +34,14 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <!-- This RecyclerView will display all of the notes pertaining to the logged in user. -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/top_home_fragment_constraint"/>
 
+    <!-- This Floating Action Button is how th user will create new note entry. -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_note_btn"
         android:layout_width="124dp"

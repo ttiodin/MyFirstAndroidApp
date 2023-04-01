@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".IncrementTool">
 
+    <!--This is the decrement button. -->
     <Button
         android:id="@+id/decrement_button"
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
         android:textSize="40sp"
         android:backgroundTint="#B90E0A"/>
 
+    <!--This is the increment button. -->
     <Button
         android:id="@+id/increment_button"
         android:layout_width="wrap_content"
@@ -28,6 +30,7 @@
         android:textSize="40sp"
         android:backgroundTint="#028A0F"/>
 
+    <!--This shows the value. -->
     <TextView
         android:id="@+id/incremental_value"
         android:layout_width="wrap_content"

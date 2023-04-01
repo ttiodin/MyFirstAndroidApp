@@ -9,6 +9,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <!-- This Contains the Utility Page Title. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top__utilities_fragment_constraint"
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- This is the TextView for the Utility Title. -->
         <TextView
             android:id="@+id/top__utilities_fragment_label"
             android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- This LinearLayout will contain all of the utility buttons. -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -43,12 +46,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top__utilities_fragment_constraint">
 
+        <!-- This is button to open up the calculator. -->
         <Button
             android:id="@+id/btn_calculator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CALCULATOR" />
 
+        <!-- This is button to open up increment tool. -->
         <Button
             android:id="@+id/btn_increment_tool"
             android:layout_width="match_parent"

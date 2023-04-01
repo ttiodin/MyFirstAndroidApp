@@ -14,7 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity{
 
     private FirebaseAuth auth;
     private FirebaseUser user;

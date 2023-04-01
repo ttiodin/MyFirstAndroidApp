@@ -128,9 +128,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/loginPrompt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
             <!-- This displays the text the user has to click to create an account. /-->
-
-
             <TextView
                 android:id="@+id/loginPrompt"
                 android:layout_width="116dp"

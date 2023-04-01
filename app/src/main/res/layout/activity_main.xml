@@ -33,7 +33,6 @@
         app:layout_constraintTop_toBottomOf="@+id/signInLabel">
 
         <!--User Enters Email -->
-
         <EditText
             android:id="@+id/user_name"
             android:layout_width="250dp"
@@ -89,7 +88,6 @@
             app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
         <!-- This lines up the the TextViews Together /-->
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="366dp"
@@ -101,8 +99,6 @@
             app:layout_constraintTop_toBottomOf="@+id/signInButton">
 
             <!-- This displays the text before "Register Now" /-->
-
-            <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/registerText"
                 android:layout_width="wrap_content"
@@ -113,6 +109,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
+            <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/registerTextPrompt"
                 android:layout_width="116dp"
@@ -127,6 +124,7 @@
                 tools:layout_editor_absoluteY="299dp" />
         </LinearLayout>
 
+        <!-- This is the Google SignIn Button, that the user interacts with to sign-in with google. /-->
         <ImageView
             android:id="@+id/google_signIn_logo"
             android:layout_width="wrap_content"
@@ -138,6 +136,7 @@
             app:layout_constraintVertical_bias="0.51"
             app:srcCompat="@drawable/common_google_signin_btn_icon_light" />
 
+        <!-- This is the GITHUB SignIn Button. /-->
         <ImageView
             android:id="@+id/github_signIn_logo"
             android:layout_width="46dp"

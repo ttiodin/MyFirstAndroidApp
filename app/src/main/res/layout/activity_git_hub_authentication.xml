@@ -7,6 +7,7 @@
     tools:context=".GitHubAuthentication"
     android:background="@color/black">
 
+    <!--This is the GITHUB logo -->
     <ImageView
         android:id="@+id/github_logo"
         android:layout_width="268dp"
@@ -17,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/github_mark_white" />
 
+    <!--This is the prompt where the user types in the GITHUB email. -->
     <EditText
         android:id="@+id/git_email"
         android:layout_width="250dp"
@@ -37,6 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/github_logo" />
 
+    <!--This is the GITHUB Login Button. -->
     <Button
         android:id="@+id/github_signin"
         android:layout_width="250dp"

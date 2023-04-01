@@ -9,8 +9,9 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <!--Contains the Settings Fragment Label. -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top__settings_fragment_constraint"
+        android:id="@+id/top_settings_fragment_constraint"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--Settings Fragment Label. -->
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
@@ -28,6 +30,7 @@
             android:layout_marginBottom="9dp"
             android:text="@string/settings"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,13 +38,43 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--This containts all of the specific user information. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/user_info_constraint"
         android:layout_width="match_parent"
-        android:layout_height="200sp"
-        app:layout_constraintTop_toBottomOf="@+id/top__settings_fragment_constraint"
+        android:layout_height="320dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_settings_fragment_constraint"
         tools:layout_editor_absoluteX="-36dp">
 
+        <!--This displays a user icon. -->
+        <ImageView
+            android:id="@+id/user_profile_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/profile_icon"
+            tools:visibility="visible" />
+
+        <!--This displays which user is logged in. -->
+        <TextView
+            android:id="@+id/user_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="167dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="168dp"
+            android:text="You are Logged In"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_profile_icon" />
+
+        <!--This is the logout button -->
         <Button
             android:id="@+id/button"
             android:layout_width="111dp"
@@ -50,10 +83,110 @@
             android:onClick="logOut"
             android:text="@string/logout"
             android:textSize="16sp"
+            android:backgroundTint="#D0312D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--This LinearLayout contains all of the different settings options. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/round_background"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/user_info_constraint"
+        tools:layout_editor_absoluteX="-99dp">
+
+        <!--This relative layout contains the TextView and the Switch for a Settings Option. -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <!--Setting One Label -->
+            <TextView
+                android:id="@+id/setting_one_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:text="Option #1"
+
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+            <!--Setting One Switch -->
+            <Switch
+                android:id="@+id/setting_one_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:switchMinWidth="50dp" />
+
+        </RelativeLayout>
+
+        <!--This relative layout contains the TextView and the Switch for a Settings Option #2. -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Setting Two Label-->
+            <TextView
+                android:id="@+id/setting_two_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:text="Option #2"
+
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+            <!--Setting Two Switch-->
+            <Switch
+                android:id="@+id/setting_two_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:switchMinWidth="50dp" />
+
+        </RelativeLayout>
+
+        <!--This relative layout contains the TextView and the Switch for a Settings Option #3. -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <!--Setting Three Label-->
+            <TextView
+                android:id="@+id/setting_three_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:text="Option #3"
+
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+            <!--Setting Three Switch -->
+            <Switch
+                android:id="@+id/setting_three_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:switchMinWidth="50dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
