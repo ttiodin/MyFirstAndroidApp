@@ -4,38 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
     tools:context=".IncrementTool">
 
     <!--This is the decrement button. -->
     <Button
         android:id="@+id/decrement_button"
+        style="@style/negative_button"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:text="-1"
         android:textColor="@color/white"
-        android:textSize="40sp"
-        android:backgroundTint="#B90E0A"/>
+        android:textSize="40sp" />
 
     <!--This is the increment button. -->
     <Button
         android:id="@+id/increment_button"
+        style="@style/positive_button"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:text="+1"
         android:textColor="@color/white"
-        android:textSize="40sp"
-        android:backgroundTint="#028A0F"/>
+        android:textSize="40sp" />
 
     <!--This shows the value. -->
     <TextView
         android:id="@+id/incremental_value"
+        style="@style/TEXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="0"
-        android:textSize="100sp"
-        android:layout_centerInParent="true"/>
+        android:textSize="100sp" />
+
+    <!--This is the back button -->
+    <Button
+        android:id="@+id/btn_back_baseActivity"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
 </RelativeLayout>

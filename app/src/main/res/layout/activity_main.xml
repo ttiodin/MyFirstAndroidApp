@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
     tools:context=".MainActivity">
 
     <!--SIGN IN LABEL -->
     <TextView
         android:id="@+id/signInLabel"
+        style="@style/TEXT"
         android:layout_width="325dp"
         android:layout_height="75dp"
         android:layout_marginTop="60dp"
@@ -35,6 +37,7 @@
         <!--User Enters Email -->
         <EditText
             android:id="@+id/user_name"
+            android:textColor="@color/black"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -55,6 +58,7 @@
         <!--User Enters Password -->
         <EditText
             android:id="@+id/userPassword"
+            android:textColor="@color/black"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="48dp"
@@ -76,13 +80,14 @@
         <!--Sign In Button -->
         <Button
             android:id="@+id/signInButton"
+            style="@style/positive_button"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
             android:backgroundTint="#45C1A8"
             android:onClick="buttonOnClick"
             android:text="@string/login"
-            android:textColor="@color/black"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userPassword" />
@@ -101,6 +106,7 @@
             <!-- This displays the text before "Register Now" /-->
             <TextView
                 android:id="@+id/registerText"
+                style="@style/TEXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
@@ -112,6 +118,7 @@
             <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/registerTextPrompt"
+                style="@style/TEXT"
                 android:layout_width="116dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -146,7 +153,8 @@
             app:layout_constraintStart_toEndOf="@+id/google_signIn_logo"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:layout_constraintVertical_bias="0.505"
-            app:srcCompat="@drawable/github_mark" />
+            app:srcCompat="@drawable/github_mark"
+            app:tint="@color/black" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

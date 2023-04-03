@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GitHubAuthentication"
+    style="@style/SCREEN"
     android:background="@color/black">
 
     <!--This is the GITHUB logo -->
@@ -21,6 +22,7 @@
     <!--This is the prompt where the user types in the GITHUB email. -->
     <EditText
         android:id="@+id/git_email"
+        style="@style/TEXT"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"

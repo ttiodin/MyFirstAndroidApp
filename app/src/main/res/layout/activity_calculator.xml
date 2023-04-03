@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
     tools:context=".Calculator">
 
     <!--This is where the solution for the calculator will display. -->
     <TextView
         android:id="@+id/solution"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_above="@+id/result"
@@ -18,12 +20,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:textAlignment="textEnd"
-        android:textColor="@color/black"
         android:textSize="32sp" />
 
     <!--This is the textview where the result will show. -->
     <TextView
         android:id="@+id/result"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_layout_20"
@@ -33,22 +35,22 @@
         android:layout_marginBottom="4dp"
         android:text="0"
         android:textAlignment="textEnd"
-        android:textColor="@color/black"
         android:textSize="64sp" />
 
     <!--This is the LinearLayout that holds all the 20 calculator buttons. -->
     <LinearLayout
         android:id="@+id/button_layout_20"
+        style="@style/SCREEN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#F1F1F1"
-        android:orientation="vertical"
-        android:paddingVertical="16dp">
+        android:orientation="vertical">
 
         <!--This is the LinearLayout that holds the first four calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_one"
+            style="@style/SCREEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -111,6 +113,7 @@
         <!--This is the LinearLayout that holds the second row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_two"
+            style="@style/SCREEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -170,6 +173,7 @@
         <!--This is the LinearLayout that holds the third row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_three"
+            style="@style/SCREEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -229,6 +233,7 @@
         <!--This is the LinearLayout that holds the fourth row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_four"
+            style="@style/SCREEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -288,6 +293,7 @@
         <!--This is the LinearLayout that holds the fifth row of calculator buttons. -->
         <LinearLayout
             android:id="@+id/button_layout_row_five"
+            style="@style/SCREEN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -350,6 +356,7 @@
     <!--This is the back button -->
     <Button
         android:id="@+id/btn_back_baseActivity"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back" />

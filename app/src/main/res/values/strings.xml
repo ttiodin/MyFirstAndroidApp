@@ -18,6 +18,7 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="incrementTitle">Increment Tool</string>
+    <string name="randomGenTitle">Random Number Generator 0-1000</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

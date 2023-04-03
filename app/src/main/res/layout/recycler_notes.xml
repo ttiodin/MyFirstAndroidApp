@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <!-- This is the TextView for the Note Title. -->
     <TextView
         android:id="@+id/note_title"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textStyle="bold|italic"
         android:layout_margin="4dp"/>
 
     <!-- This is the TextView for the Note Description. -->
     <TextView
         android:id="@+id/note_description"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description"
@@ -28,6 +31,7 @@
     <!-- This is the TextView for the Note TimeStamp. -->
     <TextView
         android:id="@+id/note_timestamp"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="timestamp"

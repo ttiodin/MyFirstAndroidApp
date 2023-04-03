@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/utilities_layout"
     android:layout_width="match_parent"
+    style="@style/SCREEN"
     android:layout_height="match_parent"
     tools:context=".UtilitiesFragment">
 
@@ -22,6 +23,7 @@
         <TextView
             android:id="@+id/top__utilities_fragment_label"
             android:layout_width="wrap_content"
+            style="@style/TEXT"
             android:layout_height="wrap_content"
             android:layout_marginStart="156dp"
             android:layout_marginTop="9dp"
@@ -29,6 +31,7 @@
             android:layout_marginBottom="9dp"
             android:text="Utilities"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +54,24 @@
             android:id="@+id/btn_calculator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:text="CALCULATOR" />
 
         <!-- This is button to open up increment tool. -->
         <Button
             android:id="@+id/btn_increment_tool"
+            android:textColor="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/incrementTitle" />
+
+        <!-- This is button to open up the Random Number Generator. -->
+        <Button
+            android:id="@+id/btn_random_number"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/randomGenTitle" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

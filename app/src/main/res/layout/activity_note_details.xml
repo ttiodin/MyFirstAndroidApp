@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    style="@style/SCREEN"
     tools:context=".NoteDetails">
 
     <!-- This RelativeLayout holds the Page Title and the Save Button. -->
@@ -16,6 +17,7 @@
         <!-- This displays the Add New Note Title. -->
         <TextView
             android:id="@+id/add_note_title"
+            style="@style/TEXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/addNote"
@@ -31,7 +33,8 @@
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_baseline_save_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            app:tint="@color/teal_700" />
     </RelativeLayout>
 
     <!-- This contains all of the note details. -->
@@ -47,6 +50,7 @@
         <!-- This is where the user enters the note title. -->
         <EditText
             android:id="@+id/note_title"
+            style="@style/TEXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/title"
@@ -58,6 +62,7 @@
         <!-- This is where the user enters the note description. -->
         <EditText
             android:id="@+id/note_description"
+            style="@style/TEXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/description"

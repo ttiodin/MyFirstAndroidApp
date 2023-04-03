@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
     tools:context=".RegisterActivity">
 
     <!--REGISTER LABEL -->
     <TextView
         android:id="@+id/registerLabel"
+        style="@style/TEXT"
         android:layout_width="325dp"
         android:layout_height="75dp"
         android:layout_marginTop="60dp"
@@ -35,6 +37,7 @@
         <!--User Enters Email -->
         <EditText
             android:id="@+id/user_name"
+            style="@style/TEXT"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -121,6 +124,7 @@
             <!-- This displays the text before "Register Now" /-->
             <TextView
                 android:id="@+id/loginText"
+                style="@style/TEXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="75dp"
@@ -132,6 +136,7 @@
             <!-- This displays the text the user has to click to create an account. /-->
             <TextView
                 android:id="@+id/loginPrompt"
+                style="@style/TEXT"
                 android:layout_width="116dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"

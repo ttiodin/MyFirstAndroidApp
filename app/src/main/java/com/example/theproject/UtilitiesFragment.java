@@ -23,7 +23,7 @@ public class UtilitiesFragment extends Fragment {
 
         Button btnCalc = v.findViewById(R.id.btn_calculator);
         Button btnIncrement = v.findViewById(R.id.btn_increment_tool);
-        //Button btnBack = v.findViewById(R.id.btn_back_baseActivity);
+        Button btnRandomNumberGenerator = v.findViewById(R.id.btn_random_number);
 
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +36,16 @@ public class UtilitiesFragment extends Fragment {
         btnIncrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent calculator = new Intent(getActivity(), IncrementTool.class);
-                startActivity(calculator);
+                Intent incrementTool = new Intent(getActivity(), IncrementTool.class);
+                startActivity(incrementTool);
+            }
+        });
+
+        btnRandomNumberGenerator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent randomNumberGen = new Intent(getActivity(), RandomNumberGenerator.class);
+                startActivity(randomNumberGen);
             }
         });
 

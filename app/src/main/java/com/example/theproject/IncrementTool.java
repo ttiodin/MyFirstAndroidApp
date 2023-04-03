@@ -2,6 +2,7 @@ package com.example.theproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ public class IncrementTool extends AppCompatActivity {
     private TextView value;
     private Button increment, decrement;
     private int count = 0;
+    private Button backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class IncrementTool extends AppCompatActivity {
         value = findViewById(R.id.incremental_value);
         increment = findViewById(R.id.increment_button);
         decrement = findViewById(R.id.decrement_button);
+        backBtn = findViewById(R.id.btn_back_baseActivity);
 
         increment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,14 @@ public class IncrementTool extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDecrement();
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent baseActivity = new Intent(IncrementTool.this, BaseActivity.class);
+                startActivity(baseActivity);
             }
         });
     }

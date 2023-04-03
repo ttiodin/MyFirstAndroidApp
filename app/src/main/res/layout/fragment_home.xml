@@ -5,6 +5,7 @@
     android:id="@+id/home_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
     tools:context=".HomeFragment">
 
     <!-- This contains the TextView. -->
@@ -20,7 +21,9 @@
         <!-- This displays the Application Name on the Home Fragment. -->
         <TextView
             android:id="@+id/top_home_fragment_label"
+            style="@style/TEXT"
             android:layout_width="wrap_content"
+            android:textStyle="bold"
             android:layout_height="34dp"
             android:layout_marginStart="116dp"
             android:layout_marginTop="8dp"
