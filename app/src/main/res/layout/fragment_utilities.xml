@@ -72,6 +72,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/randomGenTitle" />
+
+        <!-- This is button to open up the Kilograms/Pounds Converter. -->
+        <Button
+            android:id="@+id/btn_kilograms_pounds_converter"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/KGtoPoundsTitle" />
+
+        <!-- This is button to open up the Celsius/Fahrenheit Converter. -->
+        <Button
+            android:id="@+id/btn_celsius_fahrenheit_converter"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CelsiusToFahrenheitTitle" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

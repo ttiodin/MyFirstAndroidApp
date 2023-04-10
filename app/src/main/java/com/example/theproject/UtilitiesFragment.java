@@ -12,6 +12,8 @@ import android.widget.Button;
 
 public class UtilitiesFragment extends Fragment {
 
+    Button btnCalc, btnIncrement, btnRandomNumberGenerator, btnKgToLbs, btnCelsiusToFahrenheit;
+
     public UtilitiesFragment () {
 
     }
@@ -21,10 +23,13 @@ public class UtilitiesFragment extends Fragment {
 
         View v =  inflater.inflate(R.layout.fragment_utilities, container, false);
 
-        Button btnCalc = v.findViewById(R.id.btn_calculator);
-        Button btnIncrement = v.findViewById(R.id.btn_increment_tool);
-        Button btnRandomNumberGenerator = v.findViewById(R.id.btn_random_number);
+        btnCalc = v.findViewById(R.id.btn_calculator);
+        btnIncrement = v.findViewById(R.id.btn_increment_tool);
+        btnRandomNumberGenerator = v.findViewById(R.id.btn_random_number);
+        btnKgToLbs = v.findViewById(R.id.btn_kilograms_pounds_converter);
+        btnCelsiusToFahrenheit = v.findViewById(R.id.btn_celsius_fahrenheit_converter);
 
+        //This will open up the Calculator Activity.
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +38,7 @@ public class UtilitiesFragment extends Fragment {
             }
         });
 
+        //This opens up the increment/decrement tool.
         btnIncrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,11 +47,30 @@ public class UtilitiesFragment extends Fragment {
             }
         });
 
+        //This opens up the random number generator.
         btnRandomNumberGenerator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent randomNumberGen = new Intent(getActivity(), RandomNumberGenerator.class);
                 startActivity(randomNumberGen);
+            }
+        });
+
+        //This opens up the Kilograms/Pounds Converter.
+        btnKgToLbs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent kgPounds = new Intent(getActivity(), KgToLbsConverter.class);
+                startActivity(kgPounds);
+            }
+        });
+
+        //This opens up the Celsius/Fahrenheit Converter.
+        btnCelsiusToFahrenheit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent celsiusFahrenheit = new Intent(getActivity(), CelsiusToFahrenheitConverter.class);
+                startActivity(celsiusFahrenheit);
             }
         });
 

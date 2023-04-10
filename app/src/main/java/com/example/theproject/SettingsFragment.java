@@ -55,43 +55,19 @@ public class SettingsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(nightModeSwitch.isChecked()){
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    nightModeSwitch.setChecked(true);
                     editor = sharedPreferences.edit();
                     editor.putBoolean("night_mode",true);
+                    nightModeSwitch.setChecked(true);
                     editor.commit();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    nightModeSwitch.setChecked(false);
                     editor = sharedPreferences.edit();
                     editor.putBoolean("night_mode",false);
+                    nightModeSwitch.setChecked(false);
                     editor.commit();
                 }
             }
         });
-
-        //We used SharedPreferences to Save Mode If we Exit the App.
-        /*sharedPreferences = getContext().getSharedPreferences("MODE", Context.MODE_PRIVATE);
-        nightMode = sharedPreferences.getBoolean("night", false); //Light Mode is Default
-
-        if(nightMode){
-            nightModeSwitch.setChecked(true);
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-
-        nightModeSwitch.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if (nightMode){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor = sharedPreferences.edit();
-                    editor.putBoolean("night", false);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    editor = sharedPreferences.edit();
-                    editor.putBoolean("night", true);
-                }
-            }
-        }); */
 
         userName = v.findViewById(R.id.user_profile_name);
         userEmail = v.findViewById(R.id.user_profile_email);

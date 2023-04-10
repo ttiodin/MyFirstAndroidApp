@@ -16,6 +16,20 @@
         android:theme="@style/Theme.TheProject"
         tools:targetApi="31">
         <activity
+            android:name=".CelsiusToFahrenheitConverter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".KgToLbsConverter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".RandomNumberGenerator"
             android:exported="false">
             <meta-data

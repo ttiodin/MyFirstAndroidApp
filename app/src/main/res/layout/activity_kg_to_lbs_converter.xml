@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KgToLbsConverter">
+
+    <!--This shows the name of the converter. -->
+    <TextView
+        android:id="@+id/kilogram_pounds_title"
+        style="@style/TEXT"
+        android:layout_width="292dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/KGtoPoundsTitle"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/equals_sign"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--This shows the initial united to be converted. -->
+    <TextView
+        android:id="@+id/unit_edited_label"
+        style="@style/TEXT"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/kilograms"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/unit_edited"
+        app:layout_constraintEnd_toEndOf="@+id/unit_edited"
+        app:layout_constraintStart_toStartOf="@+id/unit_edited" />
+
+    <!--This is the label that the original unit is converted to. -->
+    <TextView
+        android:id="@+id/converted_value_label"
+        style="@style/TEXT"
+        android:textStyle="bold"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/pounds"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/converted_value"
+        app:layout_constraintEnd_toEndOf="@+id/converted_value"
+        app:layout_constraintStart_toStartOf="@+id/converted_value" />
+
+    <!--This is where the user will enter the amount needed to be converted. -->
+    <EditText
+        android:id="@+id/unit_edited"
+        style="@style/TEXT"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/equals_sign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--This is the converted value that will show. -->
+    <EditText
+        android:id="@+id/converted_value"
+        style="@style/TEXT"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textSize="20dp"
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/equals_sign"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--This displays the equals sign. -->
+    <TextView
+        android:id="@+id/equals_sign"
+        style="@style/TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="313dp"
+        android:gravity="center"
+        android:text="="
+        android:textSize="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <!--This is the the instructions. -->
+    <TextView
+        android:id="@+id/kilograms_pounds_instructions"
+        style="@style/TEXT"
+        android:layout_width="235dp"
+        android:layout_height="119dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Edit the unit you would like to convert."
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unit_switcher" />
+
+    <!--This allows to user to change which unit needs to be converted. -->
+    <Switch
+        android:id="@+id/unit_switcher"
+        style="@style/TEXT"
+        android:layout_width="218dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="Pounds to Kilograms"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equals_sign" />
+
+    <!--This is the back button -->
+    <Button
+        android:id="@+id/btn_back_baseActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

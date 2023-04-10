@@ -19,6 +19,12 @@
     <string name="description">Description</string>
     <string name="incrementTitle">Increment Tool</string>
     <string name="randomGenTitle">Random Number Generator 0-1000</string>
+    <string name="KGtoPoundsTitle">Kilograms/Pounds Converter</string>
+    <string name="kilograms">Kilograms</string>
+    <string name="pounds">Pounds</string>
+    <string name="CelsiusToFahrenheitTitle">Celsius/Fahrenheit Converter</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
