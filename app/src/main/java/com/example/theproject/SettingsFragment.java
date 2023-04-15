@@ -42,12 +42,12 @@ public class SettingsFragment extends Fragment {
 
         nightModeSwitch = v.findViewById(R.id.setting_one_switch);
 
-        sharedPreferences = getActivity().getSharedPreferences("night", 0);
-        nightMode = sharedPreferences.getBoolean("night_mode", true);
+        sharedPreferences = getContext().getSharedPreferences("MODE", Context.MODE_PRIVATE);
+        nightMode = sharedPreferences.getBoolean("night_mode", false);
 
         if(nightMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             nightModeSwitch.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
 
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

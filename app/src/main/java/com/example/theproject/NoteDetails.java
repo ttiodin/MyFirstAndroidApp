@@ -56,7 +56,7 @@ public class NoteDetails extends AppCompatActivity {
             deleteNote.setVisibility(View.VISIBLE);
         }
 
-
+        //On click Listener for the save Button.
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +64,7 @@ public class NoteDetails extends AppCompatActivity {
             }
         });
 
+        //On Click Listener for the Delete Text.
         deleteNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +73,7 @@ public class NoteDetails extends AppCompatActivity {
         });
     }
 
+    //This method will delete the note from Firebase.
     private void deleteNoteFromFirebase() {
 
         DocumentReference docReference;
@@ -90,6 +92,7 @@ public class NoteDetails extends AppCompatActivity {
         });
     }
 
+    //This method is used to save the note to Firebase.
     void saveNote() {
         String noteTitle = titleEditText.getText().toString();
         String noteDescription = descriptionEditText.getText().toString();
@@ -106,6 +109,7 @@ public class NoteDetails extends AppCompatActivity {
         saveNoteToFirebase(note);
     }
 
+    //This method is used to save the note to Firebase.
     void saveNoteToFirebase(Note note) {
         DocumentReference docReference;
 
@@ -133,6 +137,7 @@ public class NoteDetails extends AppCompatActivity {
         });
     }
 
+    //This pulls all the notes relating to the specific user that is logged in.
     private CollectionReference getCollectionReferenceForNotes() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         return FirebaseFirestore.getInstance().collection("notes")

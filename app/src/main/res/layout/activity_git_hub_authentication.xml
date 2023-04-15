@@ -22,7 +22,6 @@
     <!--This is the prompt where the user types in the GITHUB email. -->
     <EditText
         android:id="@+id/git_email"
-        style="@style/TEXT"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"

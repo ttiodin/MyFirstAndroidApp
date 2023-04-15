@@ -26,6 +26,7 @@ public class IncrementTool extends AppCompatActivity {
         decrement = findViewById(R.id.decrement_button);
         backBtn = findViewById(R.id.btn_back_baseActivity);
 
+        //Increment Button On Click Listener
         increment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,7 @@ public class IncrementTool extends AppCompatActivity {
             }
         });
 
+        //Decrement Button On Click Listener
         decrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +42,7 @@ public class IncrementTool extends AppCompatActivity {
             }
         });
 
+        // Back Button On Click Listener
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,11 +52,13 @@ public class IncrementTool extends AppCompatActivity {
         });
     }
 
+    // This method increases the count.
     private void setIncrement() {
         count++;
         value.setText(String.valueOf(count));
     }
 
+    // This method decreases the count.
     private void setDecrement() {
         count--;
         value.setText(String.valueOf(count));

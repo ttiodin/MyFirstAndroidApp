@@ -121,7 +121,7 @@ public class KgToLbsConverter extends AppCompatActivity {
         if(!editedUnit.getText().toString().isEmpty()){
             double kilogramValue = parseDouble(editedUnit.getText().toString());
             double newKilogramValue = kilogramValue * conversionRate;
-            convertedValue.setText(String.valueOf(String.format("%.4f", newKilogramValue)));
+            convertedValue.setText(String.format("%.4f", newKilogramValue));
         } else {
             convertedValue.setText("");
         }
@@ -131,7 +131,7 @@ public class KgToLbsConverter extends AppCompatActivity {
         if(!editedUnit.getText().toString().isEmpty()){
             double enteredValue = parseDouble(editedUnit.getText().toString());
             double newConvertedValue = enteredValue / conversionRate;
-            convertedValue.setText(String.valueOf(String.format("%.4f", newConvertedValue)));
+            convertedValue.setText(String.format("%.4f", newConvertedValue));
         } else {
             convertedValue.setText("");
         }

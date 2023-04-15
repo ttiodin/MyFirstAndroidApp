@@ -24,6 +24,7 @@ public class RandomNumberGenerator extends AppCompatActivity {
         generateButton = findViewById(R.id.generate_button);
         backBtn = findViewById(R.id.backBtn);
 
+        //On Click Listener to Generate a Random Number when clicking the button.
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,7 @@ public class RandomNumberGenerator extends AppCompatActivity {
             }
         });
 
+        //Back button to go back to the Base Activity
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
